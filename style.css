@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body[data-mode="day"] {
+    background-color: #fef3bd;
+}
+
+body[data-mode="night"] {
+    background-color: #0d1b2a;
+}
+/* Weather Card */
+.weather-card {
+    position: relative;
+    z-index: 1;
+    width: 360px;
+    max-height: 100dvh;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+/* Background overlay effect */
+.weather-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 10px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #00cfff, #ffe15d);
+    -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Mode Background */
+.weather-card[data-mode="day"] {
+    background: url(assets/day-mountain.png) no-repeat center bottom;
+    background-size: cover;
+    background-color: #fef3bd;
+}
+
+.weather-card[data-mode="night"] {
+    background: url(assets/night-mountain.png) no-repeat center bottom;
+    background-size: cover;
+    background-color: #0d1b2a;
+}
+
+.weather-card[data-mode="day"]::before {
+    background: linear-gradient(135deg, #00cfff, #ffe15d);
+}
+
+.weather-card[data-mode="night"]::before {
+    background: linear-gradient(135deg, #59ccca, #003466);
+}
+
+/* Weather Top */
+.weather-top {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.weather-top .city {
+    font-size: 38px;
+    font-weight: 400;
+    text-shadow: 0 0 8px rgba(0, 0, 0, .6);
+    padding-inline: .5rem;
+    padding-block: 5px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px -5px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.weather-top .date {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 7px 0;
+    text-shadow: 0 0 8px rgba(0, 0, 0, .6);
+    padding-inline: .5rem;
+    padding-block: 5px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px -5px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.weather-top .details-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 6px;
+    text-shadow: 0 0 8px rgba(0, 0, 0, .6);
+    padding-inline: .5rem;
+    padding-block: 5px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px -5px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.search-city {
+    padding-block: 5px;
+    padding-inline: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.search-city:focus {
+    outline: none;
+}
+
+.search-button {
+    padding-block: 5px;
+    padding-inline: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00cfff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.search-button:hover {
+    background-color: #008bbf;
+}
+
+/* Weather Center */
+.weather-center {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 60px;
+    text-shadow: 0 0 8px rgba(0, 0, 0, .6);
+    padding-inline: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px -5px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.weather-center .weather-icon {
+    font-size: 25px;
+    text-shadow: 0 0 8px rgba(0, 0, 0, .6);
+}
+
+.weather-center .temperature {
+    font-size: 36px;
+    color: white;
+}
+
+/* Time */
+.time {
+    font-size: 30px;
+    margin-top: 40px;
+    padding: 10px 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px -5px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+/* Forecast */
+.forecast {
+    width: 100%;
+    margin-top: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px -5px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.swiper-slide {
+    padding-block: 5px;
+}
+
+
+/* Sun n Moon Effects */
+.sun,
+.moon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: 135px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 30px #ffd700;
+    animation: pulse 3s ease-in-out infinite;
+    z-index: 0;
+    display: none;
+    transition: opacity .3s ease;
+}
+
+.sun {
+    background: #fff8b0;
+    box-shadow: 0 0 30px #ffd700;
+}
+
+.moon {
+    background: #fff;
+    box-shadow: 0 0 30px #fff;
+}
+
+@keyframes pulse {
+    0%, 100% {box-shadow: 0 0 30px currentColor;};
+    50% {box-shadow: 0 0 100px currentColor;}; 
+}

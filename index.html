@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CUY CUACA</title>
+
+    <!-- My Own CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+  <body data-mode="day">
+    <div class="weather-card" data-mode="day">
+      <div class="sun"></div>
+      <div class="moon"></div>
+      <div>
+        <input
+          class="search-city"
+          type="text"
+          name=""
+          id=""
+          placeholder="Search City..."
+        />
+        <button class="search-button">Search</button>
+      </div>
+
+      <div class="weather-top">
+        <h2 class="city">---</h2>
+        <div class="date">---</div>
+        <div class="details-top">
+          <div class="humidity">--- %</div>
+          <div class="wind">--- km/h</div>
+        </div>
+      </div>
+
+      <div class="weather-center">
+        <div class="weather-icon">
+          <img src="" alt="" class="weather-icon-img" />
+        </div>
+        <div class="temperature">--- °C</div>
+      </div>
+      <div class="time">---</div>
+      <div class="swiper forecast">
+        <div class="swiper-wrapper"></div>
+      </div>
+    </div>
+
+    <!-- Main JS -->
+    <script src="main.js"></script>
+  </body>
+</html>
