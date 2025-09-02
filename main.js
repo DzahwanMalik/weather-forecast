@@ -19,7 +19,7 @@ function isNight(hour) {
 }
 
 function getWeatherByCity(city) {
-    const URL = `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${city}`;
+    const URL = `https://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${city}`;
 
     fetch(URL)
     .then(res => res.json())
